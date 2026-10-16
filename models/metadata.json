@@ -1,0 +1,92 @@
+{
+  "date_entrainement": "2026-09-29T16:52:23",
+  "modele": "Régression logistique",
+  "parametres": {
+    "model__C": 10
+  },
+  "cible": "impaye",
+  "signification_cible": {
+    "0": "facture payée",
+    "1": "facture impayée"
+  },
+  "variables_entree": [
+    "consommation_kwh",
+    "anciennete_mois",
+    "retards_12m",
+    "montant_facture"
+  ],
+  "types_variables": {
+    "consommation_kwh": "float64",
+    "anciennete_mois": "int64",
+    "retards_12m": "int64",
+    "montant_facture": "float64"
+  },
+  "plages_valeurs_entrainement": {
+    "consommation_kwh": {
+      "min": 20.0,
+      "max": 370.7312207620521,
+      "moyenne": 178.359
+    },
+    "anciennete_mois": {
+      "min": 1.0,
+      "max": 119.0,
+      "moyenne": 59.936
+    },
+    "retards_12m": {
+      "min": 0.0,
+      "max": 6.0,
+      "moyenne": 1.173
+    },
+    "montant_facture": {
+      "min": 3000.0,
+      "max": 52632.37121795345,
+      "moyenne": 24924.193
+    }
+  },
+  "seuil_decision": 0.5,
+  "taille_train": 800,
+  "taille_test": 200,
+  "comparaison_modeles_cv": {
+    "Régression logistique": {
+      "auc_cv": 0.9433,
+      "meilleurs_parametres": {
+        "model__C": 10
+      }
+    },
+    "SVM": {
+      "auc_cv": 0.9427,
+      "meilleurs_parametres": {
+        "model__C": 0.1,
+        "model__kernel": "linear"
+      }
+    },
+    "Random Forest": {
+      "auc_cv": 0.935,
+      "meilleurs_parametres": {
+        "model__max_depth": 5,
+        "model__min_samples_leaf": 10
+      }
+    },
+    "XGBoost": {
+      "auc_cv": 0.937,
+      "meilleurs_parametres": {
+        "model__learning_rate": 0.03,
+        "model__max_depth": 2
+      }
+    }
+  },
+  "metriques_test": {
+    "accuracy": 0.85,
+    "precision": 0.85,
+    "recall": 0.85,
+    "f1": 0.85,
+    "auc": 0.9267
+  },
+  "versions": {
+    "python": "3.12.4",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3"
+  },
+  "fichier_modele": "modele_impaye.joblib"
+}
